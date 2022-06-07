@@ -1,0 +1,22 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: dog-service
+
+logging:
+  level:
+    pl.altkom.animalhotel.dogservice.client: DEBUG
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
