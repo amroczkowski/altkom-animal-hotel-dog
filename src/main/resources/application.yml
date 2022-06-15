@@ -3,6 +3,18 @@ server:
 spring:
   application:
     name: dog-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+  datasource:
+    url: jdbc:postgresql://animal-hotel-dog-postgres:5432/dogdb
+    username: postgres
+    password: postgres
+  flyway:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
 
 logging:
   level:

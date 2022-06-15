@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +16,8 @@ import lombok.Setter;
 public class Dog {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "dogSeq")
+    @SequenceGenerator(name = "dogSeq", sequenceName = "dog_seq", allocationSize = 20)
     private Long id;
 
     private String name;
